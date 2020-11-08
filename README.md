@@ -1,3 +1,1 @@
-This is first line
-This is second line from github Edit page
-增加一行汉字进行测试
+这个repo用来存储一些零散的脚本型代码
