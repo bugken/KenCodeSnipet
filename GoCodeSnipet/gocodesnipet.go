@@ -58,10 +58,44 @@ func testCodeTimer() {
 	testTicker()
 }
 
+/*
+slice用法，包括slice创建和slice传值方式
+切片的创建有多种方式，可以可以使用make创建，可以使用数组创建
+slice是按照类似传引用的放入传值的
+slice定义如下:
+type slice struct {
+	array unsafe.Pointer
+	len   int
+	cap   int
+}
+*/
+func testSlice() {
+	//直接创建slice
+	var slice1 []int
+	slice1 = append(slice1, 0)
+	slice1 = append(slice1, 1)
+	fmt.Println("slice1:", slice1)
+	//直接创建并初始化
+	slice2 := []int{1, 2, 3, 4, 5} // 注意这里中括号中没有长度，如果有长度就变成数组的创建了
+	fmt.Println("slice2:", slice2)
+	//使用make创建
+	slice3 := make([]int, 5)
+	slice3[0] = 0
+	slice3[1] = 1
+	fmt.Println("slice3:", slice3)
+	//使用数组创建
+	var array1 [10]int = [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10} // 基于数组创建一个数组切片
+	var slice4 []int = array1[:5]
+	fmt.Println("slice4:", slice4)
+}
+
 func main() {
-	fmt.Println("...............timer test begin..................")
-	testCodeTimer()
-	fmt.Println("...............timer test end..................")
+	// fmt.Println("...............timer test begin..................")
+	// testCodeTimer()
+	// fmt.Println("...............timer test end..................")
+	fmt.Println("...............slice test begin..................")
+	testSlice()
+	fmt.Println("...............slice test end..................")
 
 	var input string
 	fmt.Scanln(&input)
