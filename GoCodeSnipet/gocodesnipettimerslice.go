@@ -89,14 +89,7 @@ func testSlice() {
 	fmt.Println("slice4:", slice4)
 }
 
-func main() {
-	// fmt.Println("...............timer test begin..................")
-	// testCodeTimer()
-	// fmt.Println("...............timer test end..................")
-	fmt.Println("...............slice test begin..................")
-	testSlice()
-	fmt.Println("...............slice test end..................")
+//关键字defer测试
+func testDefer() {
 
-	var input string
-	fmt.Scanln(&input)
 }
