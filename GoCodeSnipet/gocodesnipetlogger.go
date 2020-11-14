@@ -34,7 +34,7 @@ var (
 func init() {
 	curLevel = DEBUG
 	logger = log.New(os.Stdout, "[default] ", log.LstdFlags)
-	logger.SetFlags(log.Ldate | log.Lmicroseconds | log.Llongfile)
+	logger.SetFlags(log.Ldate | log.Lmicroseconds | log.Lshortfile)
 }
 
 // printline ..
