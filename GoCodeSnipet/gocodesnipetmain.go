@@ -17,13 +17,17 @@ func main() {
 	// testDefer()
 	// fmt.Println("...............defer test end..................")
 
-	fmt.Println("...............error test begin..................")
-	isTrigger := true
-	e := testErrors(isTrigger)
-	if e != nil {
-		fmt.Println("e:", e)
-	}
-	fmt.Println("...............error test end..................")
+	// fmt.Println("...............error test begin..................")
+	// isTrigger := true
+	// e := testErrors(isTrigger)
+	// if e != nil {
+	// 	fmt.Println("e:", e)
+	// }
+	// fmt.Println("...............error test end..................")
+
+	fmt.Println("...............defer test begin..................")
+	testLogger()
+	fmt.Println("...............defer test end..................")
 
 	var input string
 	fmt.Scanln(&input)
