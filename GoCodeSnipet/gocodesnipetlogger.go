@@ -110,7 +110,7 @@ func setPrefix(level Level) {
 func config(level Level, lfile *os.File) {
 	curLevel = level
 	loggerf = log.New(lfile, "[default] ", log.LstdFlags)
-	loggerf.SetFlags(log.Ldate | log.Lmicroseconds | log.Llongfile)
+	loggerf.SetFlags(log.Ldate | log.Lmicroseconds | log.Lshortfile)
 }
 
 func testLogger() {
