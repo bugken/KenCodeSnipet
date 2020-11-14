@@ -88,8 +88,3 @@ func testSlice() {
 	var slice4 []int = array1[:5]
 	fmt.Println("slice4:", slice4)
 }
-
-//关键字defer测试
-func testDefer() {
-
-}
