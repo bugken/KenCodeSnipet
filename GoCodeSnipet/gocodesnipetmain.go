@@ -29,9 +29,13 @@ func main() {
 	// testLogger()
 	// fmt.Println("...............defer test end..................")
 
-	fmt.Println("...............file read write test begin..................")
-	testFileReadWrite()
-	fmt.Println("...............file read write test end..................")
+	// fmt.Println("...............file read write test begin..................")
+	// testFileReadWrite()
+	// fmt.Println("...............file read write test end..................")
+
+	fmt.Println("...............wait group test begin..................")
+	testWaitGroup()
+	fmt.Println("...............wait group test end..................")
 
 	var input string
 	fmt.Scanln(&input)
