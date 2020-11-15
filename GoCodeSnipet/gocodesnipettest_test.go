@@ -33,6 +33,27 @@ func TestJoin(t *testing.T) {
 	}
 }
 
+//自动生成测试用例 gotests -only "testJoin" gocodesnipettest.go
+func Test_testJoin(t *testing.T) {
+	type args struct {
+		strs []string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := testJoin(tt.args.strs...); got != tt.want {
+				t.Errorf("testJoin() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 // 压力测试的测试用例 testing.B 压力测试
 func BenchmarkJoin(t *testing.B) {
 	for i := 0; i < t.N; i++ {
