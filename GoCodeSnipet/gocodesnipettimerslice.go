@@ -33,6 +33,12 @@ func testTimer() {
 	duration := time.Duration(time.Second * 2)
 	timer := time.NewTimer(duration)
 	defer timer.Stop()
+	defer func() { //匿名函数捕获错误，防止一个goroutine错误导致整个程序终止
+		err := recover()
+		if err != nil {
+			fmt.Println("testTimer fail")
+		}
+	}()
 	//第一种实现方法
 	for i := 0; i < 5; i++ {
 		// 等待channel C中的信号
@@ -54,8 +60,8 @@ func testTimer() {
 *goland的定时器有两种实现方式:分别为Timer和Ticker
  */
 func testCodeTimer() {
-	//testTimer()
-	testTicker()
+	testTimer()
+	//testTicker()
 }
 
 /*
