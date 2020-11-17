@@ -1,7 +1,8 @@
 package main
 
 import (
-	"fmt"
+	"os"
+	"os/signal"
 )
 
 func main() {
@@ -33,10 +34,11 @@ func main() {
 	// testFileReadWrite()
 	// fmt.Println("...............file read write test end..................")
 
-	fmt.Println("...............wait group test begin..................")
-	testWaitGroup()
-	fmt.Println("...............wait group test end..................")
+	// fmt.Println("...............wait group test begin..................")
+	// testWaitGroup()
+	// fmt.Println("...............wait group test end..................")
 
-	var input string
-	fmt.Scanln(&input)
+	ch := make(chan os.Signal, 1)
+	signal.Notify(ch, os.Interrupt)
+	<-ch
 }
