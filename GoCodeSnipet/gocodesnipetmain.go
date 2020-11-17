@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/signal"
 )
@@ -37,6 +38,14 @@ func main() {
 	// fmt.Println("...............wait group test begin..................")
 	// testWaitGroup()
 	// fmt.Println("...............wait group test end..................")
+
+	fmt.Println("...............http server test begin..................")
+	go testHTTPServer()
+	fmt.Println("...............http server test end..................")
+
+	fmt.Println("...............http client test begin..................")
+	testHTTPClient()
+	fmt.Println("...............http client test end..................")
 
 	ch := make(chan os.Signal, 1)
 	signal.Notify(ch, os.Interrupt)
