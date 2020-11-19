@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -61,19 +63,32 @@ func (h *testGetHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 type postHandler struct{}
 
+//Message ..
+type Message struct {
+	ID  int         `json:"id"`
+	Arg interface{} `json:"arg"`
+}
+
 func (h *postHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	// 1. 请求类型是application/x-www-form-urlencoded时解析form数据
-	r.ParseForm()
-	fmt.Println(r.PostForm) // 打印form数据
-	fmt.Println(r.PostForm.Get("name"), r.PostForm.Get("age"))
+	// r.ParseForm()
+	// fmt.Println(r.PostForm) // 打印form数据
+	// fmt.Println(r.PostForm.Get("name"), r.PostForm.Get("age"))
 	// 2. 请求类型是application/json时从r.Body读取数据
-	// b, err := ioutil.ReadAll(r.Body)
-	// if err != nil {
-	// 	fmt.Printf("read request.Body failed, err:%v\n", err)
-	// 	return
-	// }
-	// fmt.Println(string(b))
+	b, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Printf("read request.Body failed, err:%v\n", err)
+		return
+	}
+	fmt.Println(string(b))
+	var msg Message
+	json.Unmarshal(b, &msg)
+	fmt.Printf("Ummarshal type=%T, id=%v, arg=%v \n", msg, msg.ID, msg.Arg)
+	msgBody := msg.Arg
+	for index, msg := range msgBody.(map[string]interface{}) {
+		fmt.Printf("message infomation is Index=%v, msg=%v\n", index, msg)
+	}
 	answer := `{"status": "ok"}`
 	w.Write([]byte(answer))
 }

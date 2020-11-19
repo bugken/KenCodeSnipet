@@ -71,11 +71,11 @@ func testHTTPClientGetWithParams() {
 func testHTTPClientPost() {
 	url := "http://127.0.0.1:1986/post"
 	//表单数据
-	contentType := "application/x-www-form-urlencoded"
-	data := "name=prince&age=18"
+	// contentType := "application/x-www-form-urlencoded"
+	// data := "name=prince&age=18"
 	//json数据
-	// contentType := "application/json"
-	// data := `{"name":"prince", "age":18}`
+	contentType := "application/json"
+	data := `{"id":900005,"arg":{"userid":234, "message":"this is a message"}}`
 	resp, err := http.Post(url, contentType, strings.NewReader(data))
 	if err != nil {
 		fmt.Printf("post failed, err:%v\n", err)
