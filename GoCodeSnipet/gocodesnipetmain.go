@@ -47,9 +47,13 @@ func main() {
 	// testHTTPClient()
 	// fmt.Println("...............http client test end..................")
 
-	fmt.Println("...............http go routine return test begin..................")
-	testGoRoutineReturn()
-	fmt.Println("...............http go routine return test end..................")
+	// fmt.Println("...............go routine return test begin..................")
+	// testGoRoutineReturn()
+	// fmt.Println("...............go routine return test end..................")
+
+	fmt.Println("...............channel example test begin..................")
+	testChannelExample()
+	fmt.Println("...............channel example  test end..................")
 
 	ch := make(chan os.Signal, 1)
 	signal.Notify(ch, os.Interrupt)
